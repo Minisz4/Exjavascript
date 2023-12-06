@@ -1,5 +1,4 @@
 let overlayDiv = document.getElementById("overlay");
-//overlayDiv.style.display = "none";
 overlayDiv.classList.add("hidden");
 const colors = [
   "yellow",
@@ -30,14 +29,14 @@ createStars();
 
 function createStars() {
   let overlay = document.getElementById("overlay");
+  const numberOfStars = 20;
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < numberOfStars; i++) {
     let starDiv = document.createElement("div");
     starDiv.classList.add("planet__star");
-
     starDiv.style.position = "fixed";
-    starDiv.style.top = 200 + "px";
-    starDiv.style.left = 125 * i + "px";
+    starDiv.style.top = Math.floor(Math.random() * window.innerHeight) + "px";
+    starDiv.style.left = Math.floor(Math.random() * window.innerWidth) + "px";
     overlay.appendChild(starDiv);
   }
 }
@@ -128,17 +127,4 @@ function printApiData(index, data) {
   let moonInfoHeading = document.getElementById("info__moon__heading");
   moonInfoHeading.innerHTML = "";
   moonInfoHeading.innerHTML = "MÅNAR (" + moons.length + ")";
-  //moonInfo.textContent = data.bodies[index].moons.length;
-  /** 
-  /** 
-      h3 -- latinName
-    desc
-    omkrets
-    km från solen
-    max temp 
-    min temp
-    månar
-    */
 }
-
-//getData();
